@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.workdatabase.mapper.IdentifyMapper">
+  <resultMap id="BaseResultMap" type="com.workdatabase.domain.Identify">
+    <id column="name" jdbcType="VARCHAR" property="name" />
+    <result column="roommateName" jdbcType="VARCHAR" property="roommatename" />
+    <result column="phoneNumber" jdbcType="VARCHAR" property="phonenumber" />
+    <result column="graduationTime" jdbcType="VARCHAR" property="graduationtime" />
+    <result column="academyName" jdbcType="VARCHAR" property="academyname" />
+    <result column="banji" jdbcType="INTEGER" property="banji" />
+    <result column="Department" jdbcType="VARCHAR" property="department" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    `name`, roommateName, phoneNumber, graduationTime, academyName, banji, Department
+  </sql>
+  <select id="selectByExample" parameterType="com.workdatabase.domain.IdentifyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from identify
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from identify
+    where `name` = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="list" resultType="com.workdatabase.domain.Identify">
+    select `name`,`roommateName`,`phoneNumber`,`graduationTime`,`academyName`,`banji`,`Department`from `Identify`
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from identify
+    where `name` = #{name,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.workdatabase.domain.IdentifyExample">
+    delete from identify
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.workdatabase.domain.Identify">
+    insert into identify (`name`, roommateName, phoneNumber, 
+      graduationTime, academyName, banji, 
+      Department)
+    values (#{name,jdbcType=VARCHAR}, #{roommatename,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR}, 
+      #{graduationtime,jdbcType=VARCHAR}, #{academyname,jdbcType=VARCHAR}, #{banji,jdbcType=INTEGER}, 
+      #{department,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.workdatabase.domain.Identify">
+    insert into identify
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="roommatename != null">
+        roommateName,
+      </if>
+      <if test="phonenumber != null">
+        phoneNumber,
+      </if>
+      <if test="graduationtime != null">
+        graduationTime,
+      </if>
+      <if test="academyname != null">
+        academyName,
+      </if>
+      <if test="banji != null">
+        banji,
+      </if>
+      <if test="department != null">
+        Department,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="roommatename != null">
+        #{roommatename,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="graduationtime != null">
+        #{graduationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="academyname != null">
+        #{academyname,jdbcType=VARCHAR},
+      </if>
+      <if test="banji != null">
+        #{banji,jdbcType=INTEGER},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.workdatabase.domain.IdentifyExample" resultType="java.lang.Long">
+    select count(*) from identify
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update identify
+    <set>
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roommatename != null">
+        roommateName = #{record.roommatename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonenumber != null">
+        phoneNumber = #{record.phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graduationtime != null">
+        graduationTime = #{record.graduationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.academyname != null">
+        academyName = #{record.academyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.banji != null">
+        banji = #{record.banji,jdbcType=INTEGER},
+      </if>
+      <if test="record.department != null">
+        Department = #{record.department,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update identify
+    set `name` = #{record.name,jdbcType=VARCHAR},
+      roommateName = #{record.roommatename,jdbcType=VARCHAR},
+      phoneNumber = #{record.phonenumber,jdbcType=VARCHAR},
+      graduationTime = #{record.graduationtime,jdbcType=VARCHAR},
+      academyName = #{record.academyname,jdbcType=VARCHAR},
+      banji = #{record.banji,jdbcType=INTEGER},
+      Department = #{record.department,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.workdatabase.domain.Identify">
+    update identify
+    <set>
+      <if test="roommatename != null">
+        roommateName = #{roommatename,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="graduationtime != null">
+        graduationTime = #{graduationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="academyname != null">
+        academyName = #{academyname,jdbcType=VARCHAR},
+      </if>
+      <if test="banji != null">
+        banji = #{banji,jdbcType=INTEGER},
+      </if>
+      <if test="department != null">
+        Department = #{department,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `name` = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.workdatabase.domain.Identify">
+    update identify
+    set roommateName = #{roommatename,jdbcType=VARCHAR},
+      phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      graduationTime = #{graduationtime,jdbcType=VARCHAR},
+      academyName = #{academyname,jdbcType=VARCHAR},
+      banji = #{banji,jdbcType=INTEGER},
+      Department = #{department,jdbcType=VARCHAR}
+    where `name` = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>

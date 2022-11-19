@@ -1,0 +1,14 @@
+POST http://localhost:80/WeixinUser/Login
+Content-Type: application/x-www-form-urlencoded
+
+code=073QwwGa1io7iE024JGa1ESZ2z2QwwGA
+
+
+###
+
+POST http://localhost:80/WeixinUser/identify
+Content-Type: application/x-www-form-urlencoded
+
+openId=ol_Y65RUa066RPCw58RX6F8xUMUI&name=古巨基&roommatename=爱妃&phonenumber=33333&graduationtime=2002-01-02&academyname=化学学院&banji=2&department=计算机部
+
+###
