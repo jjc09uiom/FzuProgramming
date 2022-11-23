@@ -23,8 +23,9 @@ public class MoneyController {
     private UserMapper userMapper;
 
     @GetMapping("/money")       //捐款操作
-    public CommonResp donation(@RequestParam Integer user_id, @RequestParam Integer push_Money, @RequestParam Integer id){
+    public CommonResp donation(@RequestParam Integer openid, @RequestParam Integer push_Money, @RequestParam Integer id){
         CommonResp<String> commonResp = new CommonResp();
+        Integer user_id = openid;
         if(push_Money > 0){
             Integer current_Money = userMapper.SelectById_integral(user_id);
             if(push_Money<=current_Money){
@@ -76,7 +77,6 @@ public class MoneyController {
         commonResp.setSuccess(true);
         commonResp.setMessage("请求数据成功");
         return commonResp;
-//        return moneyMapper.Select_All(pageNum,pageSize);
     }
 
 
