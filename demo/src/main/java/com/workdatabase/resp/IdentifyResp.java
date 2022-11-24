@@ -8,17 +8,27 @@ public class IdentifyResp {
 
     private String name;
 
+    private  String openid;
+
     private String roommatename;
 
     private String phonenumber;
 
     private String graduationtime;
 
-    private String academyname;
+    private String major;
 
     private Integer banji;
 
     private String department;
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
 
     public boolean isFlag() {
         return flag;
@@ -60,12 +70,12 @@ public class IdentifyResp {
         this.graduationtime = graduationtime;
     }
 
-    public String getAcademyname() {
-        return academyname;
+    public String getMajor() {
+        return major;
     }
 
-    public void setAcademyname(String academyname) {
-        this.academyname = academyname;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public Integer getBanji() {
@@ -89,10 +99,11 @@ public class IdentifyResp {
         return "IdentifyResp{" +
                 "flag=" + flag +
                 ", name='" + name + '\'' +
+                ", openId='" + openid + '\'' +
                 ", roommatename='" + roommatename + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
                 ", graduationtime='" + graduationtime + '\'' +
-                ", academyname='" + academyname + '\'' +
+                ", major='" + major + '\'' +
                 ", banji=" + banji +
                 ", department='" + department + '\'' +
                 '}';

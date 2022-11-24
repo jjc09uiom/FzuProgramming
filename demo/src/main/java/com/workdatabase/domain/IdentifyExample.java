@@ -384,73 +384,73 @@ public class IdentifyExample {
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameIsNull() {
-            addCriterion("academyName is null");
+        public Criteria andMajormynameIsNull() {
+            addCriterion("major is null");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameIsNotNull() {
-            addCriterion("academyName is not null");
+        public Criteria andMajormynameIsNotNull() {
+            addCriterion("major is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameEqualTo(String value) {
-            addCriterion("academyName =", value, "academyname");
+        public Criteria andMajormynameEqualTo(String value) {
+            addCriterion("major =", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameNotEqualTo(String value) {
-            addCriterion("academyName <>", value, "academyname");
+        public Criteria andMajormynameNotEqualTo(String value) {
+            addCriterion("major <>", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameGreaterThan(String value) {
-            addCriterion("academyName >", value, "academyname");
+        public Criteria andMajormynameGreaterThan(String value) {
+            addCriterion("major >", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameGreaterThanOrEqualTo(String value) {
-            addCriterion("academyName >=", value, "academyname");
+        public Criteria andMajormynameGreaterThanOrEqualTo(String value) {
+            addCriterion("major >=", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameLessThan(String value) {
-            addCriterion("academyName <", value, "academyname");
+        public Criteria andMajormynameLessThan(String value) {
+            addCriterion("major <", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameLessThanOrEqualTo(String value) {
-            addCriterion("academyName <=", value, "academyname");
+        public Criteria andMajormynameLessThanOrEqualTo(String value) {
+            addCriterion("major <=", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameLike(String value) {
-            addCriterion("academyName like", value, "academyname");
+        public Criteria andMajormynameLike(String value) {
+            addCriterion("major like", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameNotLike(String value) {
-            addCriterion("academyName not like", value, "academyname");
+        public Criteria andMajormynameNotLike(String value) {
+            addCriterion("major not like", value, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameIn(List<String> values) {
-            addCriterion("academyName in", values, "academyname");
+        public Criteria andMajormynameIn(List<String> values) {
+            addCriterion("major in", values, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameNotIn(List<String> values) {
-            addCriterion("academyName not in", values, "academyname");
+        public Criteria andMajormynameNotIn(List<String> values) {
+            addCriterion("major not in", values, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameBetween(String value1, String value2) {
-            addCriterion("academyName between", value1, value2, "academyname");
+        public Criteria andMajormynameBetween(String value1, String value2) {
+            addCriterion("major between", value1, value2, "major");
             return (Criteria) this;
         }
 
-        public Criteria andAcademynameNotBetween(String value1, String value2) {
-            addCriterion("academyName not between", value1, value2, "academyname");
+        public Criteria andMajormynameNotBetween(String value1, String value2) {
+            addCriterion("major not between", value1, value2, "major");
             return (Criteria) this;
         }
 

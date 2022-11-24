@@ -6,7 +6,7 @@
     <result column="roommateName" jdbcType="VARCHAR" property="roommatename" />
     <result column="phoneNumber" jdbcType="VARCHAR" property="phonenumber" />
     <result column="graduationTime" jdbcType="VARCHAR" property="graduationtime" />
-    <result column="academyName" jdbcType="VARCHAR" property="academyname" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
     <result column="banji" jdbcType="INTEGER" property="banji" />
     <result column="Department" jdbcType="VARCHAR" property="department" />
   </resultMap>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    `name`, roommateName, phoneNumber, graduationTime, academyName, banji, Department
+    `name`, roommateName, phoneNumber, graduationTime, major, banji, Department
   </sql>
   <select id="selectByExample" parameterType="com.workdatabase.domain.IdentifyExample" resultMap="BaseResultMap">
     select
@@ -92,7 +92,7 @@
     where `name` = #{name,jdbcType=VARCHAR}
   </select>
   <select id="list" resultType="com.workdatabase.domain.Identify">
-    select `name`,`roommateName`,`phoneNumber`,`graduationTime`,`academyName`,`banji`,`Department`from `Identify`
+    select `name`,`roommateName`,`phoneNumber`,`graduationTime`,`major`,`banji`,`Department`from `Identify`
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from identify
@@ -106,10 +106,10 @@
   </delete>
   <insert id="insert" parameterType="com.workdatabase.domain.Identify">
     insert into identify (`name`, roommateName, phoneNumber, 
-      graduationTime, academyName, banji, 
+      graduationTime, major, banji,
       Department)
     values (#{name,jdbcType=VARCHAR}, #{roommatename,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR}, 
-      #{graduationtime,jdbcType=VARCHAR}, #{academyname,jdbcType=VARCHAR}, #{banji,jdbcType=INTEGER}, 
+      #{graduationtime,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{banji,jdbcType=INTEGER},
       #{department,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.workdatabase.domain.Identify">
@@ -127,8 +127,8 @@
       <if test="graduationtime != null">
         graduationTime,
       </if>
-      <if test="academyname != null">
-        academyName,
+      <if test="major != null">
+        major,
       </if>
       <if test="banji != null">
         banji,
@@ -150,8 +150,8 @@
       <if test="graduationtime != null">
         #{graduationtime,jdbcType=VARCHAR},
       </if>
-      <if test="academyname != null">
-        #{academyname,jdbcType=VARCHAR},
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
       </if>
       <if test="banji != null">
         #{banji,jdbcType=INTEGER},
@@ -182,8 +182,8 @@
       <if test="record.graduationtime != null">
         graduationTime = #{record.graduationtime,jdbcType=VARCHAR},
       </if>
-      <if test="record.academyname != null">
-        academyName = #{record.academyname,jdbcType=VARCHAR},
+      <if test="record.major != null">
+        major = #{record.major,jdbcType=VARCHAR},
       </if>
       <if test="record.banji != null">
         banji = #{record.banji,jdbcType=INTEGER},
@@ -202,7 +202,7 @@
       roommateName = #{record.roommatename,jdbcType=VARCHAR},
       phoneNumber = #{record.phonenumber,jdbcType=VARCHAR},
       graduationTime = #{record.graduationtime,jdbcType=VARCHAR},
-      academyName = #{record.academyname,jdbcType=VARCHAR},
+      major = #{record.major,jdbcType=VARCHAR},
       banji = #{record.banji,jdbcType=INTEGER},
       Department = #{record.department,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -221,8 +221,8 @@
       <if test="graduationtime != null">
         graduationTime = #{graduationtime,jdbcType=VARCHAR},
       </if>
-      <if test="academyname != null">
-        academyName = #{academyname,jdbcType=VARCHAR},
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
       </if>
       <if test="banji != null">
         banji = #{banji,jdbcType=INTEGER},
@@ -238,7 +238,7 @@
     set roommateName = #{roommatename,jdbcType=VARCHAR},
       phoneNumber = #{phonenumber,jdbcType=VARCHAR},
       graduationTime = #{graduationtime,jdbcType=VARCHAR},
-      academyName = #{academyname,jdbcType=VARCHAR},
+        major = #{major,jdbcType=VARCHAR},
       banji = #{banji,jdbcType=INTEGER},
       Department = #{department,jdbcType=VARCHAR}
     where `name` = #{name,jdbcType=VARCHAR}

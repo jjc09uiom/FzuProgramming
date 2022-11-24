@@ -10,7 +10,7 @@ public class IdentifySaveReq {
 
     private String graduationtime;
 
-    private String academyname;
+    private String major;
 
     private Integer banji;
 
@@ -48,12 +48,12 @@ public class IdentifySaveReq {
         this.graduationtime = graduationtime;
     }
 
-    public String getAcademyname() {
-        return academyname;
+    public String getMajor() {
+        return major;
     }
 
-    public void setAcademyname(String academyname) {
-        this.academyname = academyname;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public Integer getBanji() {
@@ -82,7 +82,7 @@ public class IdentifySaveReq {
         sb.append(", roommatename=").append(roommatename);
         sb.append(", phonenumber=").append(phonenumber);
         sb.append(", graduationtime=").append(graduationtime);
-        sb.append(", academyname=").append(academyname);
+        sb.append(", major=").append(major);
         sb.append(", banji=").append(banji);
         sb.append(", department=").append(department);
         sb.append("]");

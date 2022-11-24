@@ -34,7 +34,7 @@ public class IdenServer {
             identify.setName("无");
             identify.setRoommatename(" ");
             identify.setPhonenumber(" ");
-            identify.setAcademyname(" ");
+            identify.setMajor(" ");
             identify.setBanji(0);
             identify.setDepartment(" ");
             return identify;
@@ -46,6 +46,8 @@ public class IdenServer {
 
 
     public IdentifyResp identify(IdentifyQueryReq req){
+
+
         Identify InfDB=selectByPrimaryKeyLoginName(req.getName());
         IdentifyResp identifyResp=CopyUtil.copy(InfDB,IdentifyResp.class);
         if(InfDB.getName().equals("无")){

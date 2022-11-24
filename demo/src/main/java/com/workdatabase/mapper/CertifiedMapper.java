@@ -2,8 +2,9 @@ package com.workdatabase.mapper;
 
 import com.workdatabase.domain.Certified;
 import com.workdatabase.domain.CertifiedExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CertifiedMapper {
     long countByExample(CertifiedExample example);

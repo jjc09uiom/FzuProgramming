@@ -15,7 +15,7 @@ public class IdentifyQueryReq {
     @NotNull(message = "【毕业年份】不能为空")
     private String graduationtime;
     @NotNull(message = "【学院】不能为空")
-    private String academyname;
+    private String major;
     @NotNull(message = "【班级】不能为空")
     private Integer banji;
     @NotNull(message = "【社团】不能为空")
@@ -61,12 +61,12 @@ public class IdentifyQueryReq {
         this.graduationtime = graduationtime;
     }
 
-    public String getAcademyname() {
-        return academyname;
+    public String getMajor() {
+        return major;
     }
 
-    public void setAcademyname(String academyname) {
-        this.academyname = academyname;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public Integer getBanji() {
@@ -95,7 +95,7 @@ public class IdentifyQueryReq {
         sb.append(", roommatename=").append(roommatename);
         sb.append(", phonenumber=").append(phonenumber);
         sb.append(", graduationtime=").append(graduationtime);
-        sb.append(", academyname=").append(academyname);
+        sb.append(", major=").append(major);
         sb.append(", banji=").append(banji);
         sb.append(", department=").append(department);
         sb.append("]");

@@ -88,12 +88,20 @@ public class IdenController {
                 certifiedReq.setRoommatename(req.getRoommatename());
                 certifiedReq.setPhonenumber(req.getPhonenumber());
                 certifiedReq.setGraduationtime(req.getGraduationtime());
-                certifiedReq.setAcademyname(req.getAcademyname());
+                certifiedReq.setMajor(req.getMajor());
                 certifiedReq.setBanji(req.getBanji());
                 certifiedReq.setDepartment(req.getDepartment());
                 userloginServer.insert(certifiedReq);
             }
         }
+        identify.setOpenid(req.getOpenId());
+        identify.setName(req.getName());
+        identify.setRoommatename(req.getRoommatename());
+        identify.setPhonenumber(req.getPhonenumber());
+        identify.setBanji(req.getBanji());
+        identify.setDepartment(req.getDepartment());
+        identify.setMajor(req.getMajor());
+        identify.setGraduationtime(req.getGraduationtime());
         resp.setContent(identify);
         return resp;
     }

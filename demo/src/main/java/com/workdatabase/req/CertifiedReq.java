@@ -13,7 +13,7 @@ public class CertifiedReq {
 
     private String graduationtime;
 
-    private String academyname;
+    private String major;
 
     private Integer banji;
 
@@ -61,12 +61,12 @@ public class CertifiedReq {
         this.graduationtime = graduationtime;
     }
 
-    public String getAcademyname() {
-        return academyname;
+    public String getMajor() {
+        return major;
     }
 
-    public void setAcademyname(String academyname) {
-        this.academyname = academyname;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public Integer getBanji() {
@@ -93,7 +93,7 @@ public class CertifiedReq {
                 ", roommatename='" + roommatename + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
                 ", graduationtime='" + graduationtime + '\'' +
-                ", academyname='" + academyname + '\'' +
+                ", major='" + major + '\'' +
                 ", banji=" + banji +
                 ", department='" + department + '\'' +
                 '}';
