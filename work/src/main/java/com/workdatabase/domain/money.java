@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class money {
     private Integer id;
+    private String title;
     private String description;
+    private String picture_filed;
     private Integer current;
     private Integer target;
 }
