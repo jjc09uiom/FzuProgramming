@@ -12,3 +12,19 @@ Content-Type: application/x-www-form-urlencoded
 openId=ol_Y65RUa066RPCw58RX6F8xUMUI&name=古巨基&roommatename=爱妃&phonenumber=33333&graduationtime=2002-01-02&academyname=化学学院&banji=2&department=计算机部
 
 ###
+
+GET http://localhost:80/Weixin/GetMap
+Accept: application/json
+
+###
+
+GET http://localhost:80/Weixin/greeting
+Accept: application/json
+
+###
+POST http://localhost:80/Weixin/getMessage
+Content-Type: application/x-www-form-urlencoded
+
+id=6
+
+###
