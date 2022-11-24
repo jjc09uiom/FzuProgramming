@@ -263,9 +263,4 @@ public class question {
 //            e.printStackTrace();
 //        }
 //    }
-    //删除题目
-//    public void delete_Question(int keyId){
-//
-//    }
-    //
 }
