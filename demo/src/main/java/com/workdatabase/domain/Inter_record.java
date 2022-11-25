@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.workdatabase.domain;
 
 public class Inter_record {
     public String time;//答题时间

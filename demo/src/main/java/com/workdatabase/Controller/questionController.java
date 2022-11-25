@@ -1,9 +1,9 @@
-package com.example.Controller;
+package com.workdatabase.Controller;
 
 
-import com.example.domain.Inter_Static;
-import com.example.domain.Inter_record;
-import com.example.service.QuestionService;
+import com.workdatabase.domain.Inter_Static;
+import com.workdatabase.domain.Inter_record;
+import com.workdatabase.server.QuestionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

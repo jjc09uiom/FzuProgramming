@@ -1,8 +1,7 @@
-package com.example.service;
+package com.workdatabase.server;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

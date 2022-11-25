@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.workdatabase.domain;
 
 public class Inter_Static {
     public String name;//姓名
