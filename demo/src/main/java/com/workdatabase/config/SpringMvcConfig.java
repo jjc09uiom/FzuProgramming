@@ -1,4 +1,4 @@
-package com.workdatabase.config;//package com.workdatabase.config;
+//package com.workdatabase.config;
 //
 //import com.workdatabase.interceptor.LoginInterceptor;
 //import org.springframework.context.annotation.Configuration;

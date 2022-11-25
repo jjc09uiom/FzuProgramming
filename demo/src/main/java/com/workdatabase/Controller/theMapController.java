@@ -25,8 +25,6 @@ public class theMapController {
     @Resource
     private GreetingServer greetingServer;
 
-
-
     @GetMapping("/Weixin/GetMap")
     public CommonResp getMap(){
         CommonResp<List<TheMap>> resp=new CommonResp();

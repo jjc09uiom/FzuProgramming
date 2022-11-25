@@ -1,7 +1,0 @@
-POST http://localhost:8888/Inf/identify
-Content-Type: application/x-www-form-urlencoded
-
-name=陈奕迅&colleageName=林加德&phoneNumber=11111&graduationTime=2000-01-02&schoolName=计算机与大数据学院&banji=2&community=外联部
-
-###
-
