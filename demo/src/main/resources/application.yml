@@ -1,0 +1,27 @@
+
+server:
+        port: 8040
+
+
+#Mybatis????
+# ???????
+#??mysql???(?????)
+spring:
+        datasource:
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                url: jdbc:mysql://sh-cynosdbmysql-grp-dahz4tww.sql.tencentcdb.com:28835/test?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+                username: zwj
+                password: Www7k7kcom
+        #  redis??
+        redis:
+                host: r-uf6ljbcdaxobsifyctpd.redis.rds.aliyuncs.com
+                port: 6379
+                password: Redis000
+
+
+# ????Mapper.xml??
+mybatis:
+        mapper-locations: classpath:mapper/*.xml    #??xml??
+        configuration:
+                log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
