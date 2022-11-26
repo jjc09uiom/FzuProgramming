@@ -255,4 +255,14 @@
       department = #{department,jdbcType=VARCHAR}
     where openId = #{openid,jdbcType=VARCHAR}
   </update>
+
+  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+  <select id="Select_ByPage" resultType="com.workdatabase.domain.Certified">
+    select * from certified limit #{pageNum},#{pageSize};
+  </select>
+  <delete id="DeleteById" parameterType="String">
+    delete from certified where openId = #{openId};
+  </delete>
+  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+
 </mapper>
