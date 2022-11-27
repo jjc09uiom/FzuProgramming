@@ -255,4 +255,42 @@
       department = #{department,jdbcType=VARCHAR}
     where openId = #{openid,jdbcType=VARCHAR}
   </update>
+
+  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+  <select id="SelectPage" resultType="com.workdatabase.domain.Certified">
+    select * from certified
+    where name like #{name} and
+        roommateName like #{roommateName} and
+        phonenumber like #{phonenumber} and
+        graduationTime like #{graduationTime} and
+        major like #{major} and
+        banji like #{banji} and
+        department like #{department}
+    limit #{pageNum},#{pageSize};
+  </select>
+  <select id="SelectCount" resultType="int">
+    select count(*) from certified
+    where name like #{name} and
+      roommateName like #{roommateName} and
+      phonenumber like #{phonenumber} and
+      graduationTime like #{graduationTime} and
+      major like #{major} and
+      banji like #{banji} and
+      department like #{department}
+  </select>
+  <delete id="DeleteByName" parameterType="String">
+    delete from certified where name = #{name};
+  </delete>
+  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+
+  <!--  ************************   "捐款" 区域 *************************************************************-->
+  <select id="SelectById_Money" resultType="int">
+    select money from certified where openid = #{openid};
+  </select>
+  <update id="Update_Money" >
+    update certified set money = #{money} where openid = #{openid};
+  </update>
+  <!--  ************************   "捐款" 区域 *************************************************************-->
+
+
 </mapper>

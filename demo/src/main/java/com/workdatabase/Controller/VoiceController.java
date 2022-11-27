@@ -8,7 +8,9 @@ import com.workdatabase.server.web.VoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/voice")
@@ -20,19 +22,28 @@ public class VoiceController {
     @Autowired
     private VoiceService voiceService;
 /*************************************   "后台Web管理系统"区域  ************************************************************************/
-    //1.用分页的方式，返回当前捐款信息
-    @GetMapping("/fresh")
-    public CommonResp fresh(@RequestParam Integer pageNum, @RequestParam Integer pageSize){
-        CommonResp< List<Voice> > commonResp = new CommonResp();
-        pageNum = (pageNum - 1)* pageSize;
-        commonResp.setContent(voiceMapper.Select_ByPage(pageNum,pageSize));
+    //1.用分页的方式，返回当前祝福语信息
+    @GetMapping("/page")
+    public CommonResp page(@RequestParam Integer pageNum,
+                               @RequestParam Integer pageSize,
+                               @RequestParam String  greeting){
+        pageNum=(pageNum-1)*pageSize;
+        greeting = "%"+greeting+"%";
+        Map<String,Object> res = new HashMap<>();
+        List<Voice> data = voiceMapper.SelectPage(pageNum,pageSize,greeting);
+        Integer total = voiceMapper.SelectCount(greeting);
+        res.put("data" , data);
+        res.put("total" , total);
+        CommonResp< Map<String,Object> > commonResp = new CommonResp();
+        commonResp.setContent(res);
         commonResp.setSuccess(true);
-        commonResp.setMessage("请求数据成功");
+        commonResp.setMessage("查找成功。");
         return commonResp;
     }
     //2.新增或者修改
     @PostMapping("/save")
     public CommonResp save(@RequestBody Voice voice){
+        System.out.println(voice);
         boolean flag = voiceService.saveOrUpdate(voice);
         CommonResp< List<Voice> > commonResp = new CommonResp();
         if(flag){
@@ -64,6 +75,7 @@ public class VoiceController {
         }
         return commonResp;
     }
+
 /*************************************   "后台Web管理系统" 区域 ************************************************************************/
 
 }

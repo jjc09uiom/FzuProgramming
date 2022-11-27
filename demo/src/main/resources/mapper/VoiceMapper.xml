@@ -168,11 +168,14 @@
   </update>
 
   <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
-  <select id="Select_ByPage" resultType="com.workdatabase.domain.Voice">
-    select * from voice limit #{pageNum},#{pageSize};
+  <select id="SelectPage" resultType="com.workdatabase.domain.Voice">
+    select * from voice where greeting like #{greeting} limit #{pageNum},#{pageSize};
   </select>
   <delete id="DeleteById" parameterType="int">
     delete from voice where keyId = #{keyId};
   </delete>
+  <select id="SelectCount" resultType="int">
+    select count(*) from voice where greeting like #{greeting};
+  </select>
   <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
 </mapper>

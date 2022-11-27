@@ -33,7 +33,9 @@ public interface VoiceMapper {
 
     List<Voice> list();
     /************************   "后台Web管理系统" 区域 *************************************************************/
-    public List<Voice> Select_ByPage(Integer pageNum,Integer pageSize);
+    public List<Voice> SelectPage(Integer pageNum,Integer pageSize,String greeting);
+    public Integer SelectCount(String greeting);
     public Integer DeleteById(Integer keyId);
+
     /************************   "后台Web管理系统" 区域 *************************************************************/
 }
