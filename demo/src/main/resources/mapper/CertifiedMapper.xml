@@ -257,8 +257,26 @@
   </update>
 
   <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
-  <select id="Select_ByPage" resultType="com.workdatabase.domain.Certified">
-    select * from certified limit #{pageNum},#{pageSize};
+  <select id="SelectPage" resultType="com.workdatabase.domain.Certified">
+    select * from certified
+    where name like #{name} and
+        roommateName like #{roommateName} and
+        phonenumber like #{phonenumber} and
+        graduationTime like #{graduationTime} and
+        major like #{major} and
+        banji like #{banji} and
+        department like #{department}
+    limit #{pageNum},#{pageSize};
+  </select>
+  <select id="SelectCount" resultType="int">
+    select count(*) from certified
+    where name like #{name} and
+      roommateName like #{roommateName} and
+      phonenumber like #{phonenumber} and
+      graduationTime like #{graduationTime} and
+      major like #{major} and
+      banji like #{banji} and
+      department like #{department}
   </select>
   <delete id="DeleteById" parameterType="String">
     delete from certified where openId = #{openId};

@@ -8,7 +8,9 @@ import com.workdatabase.server.web.CertifiedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/certified")
@@ -19,14 +21,37 @@ public class CertifiedController {
     @Autowired
     private CertifiedMapper certifiedMapper;
     /*************************************   "后台Web管理系统"区域  ************************************************************************/
-    //1.用分页的方式，返回当前捐款信息
-    @GetMapping("/fresh")
-    public CommonResp fresh(@RequestParam Integer pageNum, @RequestParam Integer pageSize){
-        CommonResp<List<Certified>> commonResp = new CommonResp();
-        pageNum = (pageNum - 1)* pageSize;
-        commonResp.setContent(certifiedMapper.Select_ByPage(pageNum,pageSize));
+    //1.用分页的方式，返回当前用户信息
+    @GetMapping("/page")
+    public CommonResp page(@RequestParam Integer pageNum,
+                                   @RequestParam Integer pageSize,
+                                   @RequestParam String  name,
+                                   @RequestParam String roommateName,
+                                   @RequestParam String phonenumber,
+                                   @RequestParam String graduationTime,
+                                   @RequestParam String major,
+                                   @RequestParam String banji,
+                                   @RequestParam String department
+                                   ){
+        pageNum=(pageNum-1)*pageSize;
+        name = "%"+name+"%";
+        roommateName = "%"+roommateName+"%";
+        phonenumber = "%"+phonenumber+"%";
+        graduationTime = "%"+graduationTime+"%";
+        major = "%"+major+"%";
+        banji = "%"+banji+"%";
+        department = "%" + department + "%";
+
+        Map<String,Object> res = new HashMap<>();
+        List<Certified> data = certifiedMapper.SelectPage(pageNum,pageSize,name,roommateName,phonenumber,graduationTime,major,banji,department);
+        Integer total = certifiedMapper.SelectCount(name,roommateName,phonenumber,graduationTime,major,banji,department);
+        res.put("data" , data);
+        res.put("total" , total);
+
+        CommonResp< Map<String,Object> > commonResp = new CommonResp();
+        commonResp.setContent(res);
         commonResp.setSuccess(true);
-        commonResp.setMessage("请求数据成功");
+        commonResp.setMessage("查找成功。");
         return commonResp;
     }
     //2.新增或者修改

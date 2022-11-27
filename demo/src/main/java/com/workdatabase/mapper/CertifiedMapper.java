@@ -5,6 +5,7 @@ import com.workdatabase.domain.CertifiedExample;
 import com.workdatabase.domain.Voice;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,7 +34,11 @@ public interface CertifiedMapper {
     int updateByPrimaryKey(Certified record);
 
     /************************   "后台Web管理系统" 区域 *************************************************************/
-    public List<Certified> Select_ByPage(Integer pageNum,Integer pageSize);
+    public List<Certified> SelectPage(Integer pageNum,Integer pageSize,
+                                      String  name,String roommateName,String phonenumber,String graduationTime,
+                                      String major,String banji,String department);
+    public Integer SelectCount(String  name,String roommateName,String phonenumber,String graduationTime,
+                               String major,String banji,String department);
     public Integer DeleteById(String openId);
     /************************   "后台Web管理系统" 区域 *************************************************************/
 

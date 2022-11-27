@@ -1,10 +1,10 @@
 package com.workdatabase.Controller;
 
-
+import com.workdatabase.domain.Scenery;
 import com.workdatabase.domain.Voice;
-import com.workdatabase.mapper.VoiceMapper;
+import com.workdatabase.mapper.SceneryMapper;
 import com.workdatabase.resp.CommonResp;
-import com.workdatabase.server.web.VoiceService;
+import com.workdatabase.server.web.SceneryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,25 +13,24 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/voice")
-public class VoiceController {
+@RequestMapping("/scenery")
+public class SceneryController {
 
     @Autowired
-    private VoiceMapper voiceMapper;
-
+    private SceneryMapper sceneryMapper;
     @Autowired
-    private VoiceService voiceService;
+    private SceneryService sceneryService;
 /*************************************   "后台Web管理系统"区域  ************************************************************************/
-    //1.用分页的方式，返回当前祝福语信息
+    //1.用分页的方式，返回当前景点信息
     @GetMapping("/page")
     public CommonResp page(@RequestParam Integer pageNum,
-                               @RequestParam Integer pageSize,
-                               @RequestParam String  greeting){
+                           @RequestParam Integer pageSize,
+                           @RequestParam String  sname){
         pageNum=(pageNum-1)*pageSize;
-        greeting = "%"+greeting+"%";
+        sname = "%"+sname+"%";
         Map<String,Object> res = new HashMap<>();
-        List<Voice> data = voiceMapper.SelectPage(pageNum,pageSize,greeting);
-        Integer total = voiceMapper.SelectCount(greeting);
+        List<Scenery> data = sceneryMapper.SelectPage(pageNum,pageSize,sname);
+        Integer total = sceneryMapper.SelectCount(sname);
         res.put("data" , data);
         res.put("total" , total);
         CommonResp< Map<String,Object> > commonResp = new CommonResp();
@@ -42,9 +41,9 @@ public class VoiceController {
     }
     //2.新增或者修改
     @PostMapping("/save")
-    public CommonResp save(@RequestBody Voice voice){
-        System.out.println(voice);
-        boolean flag = voiceService.saveOrUpdate(voice);
+    public CommonResp save(@RequestBody Scenery scenery){
+        System.out.println(scenery);
+        boolean flag = sceneryService.saveOrUpdate(scenery);
         CommonResp< List<Voice> > commonResp = new CommonResp();
         if(flag){
             commonResp.setContent(null);
@@ -60,9 +59,9 @@ public class VoiceController {
     }
     //3.删除
     @PostMapping("/delete")
-    public CommonResp delete(@RequestBody Voice voice){
-        Integer flag = voiceMapper.DeleteById(voice.getKeyId());
-        CommonResp< List<Voice> > commonResp = new CommonResp();
+    public CommonResp delete(@RequestBody Scenery scenery){
+        Integer flag = sceneryMapper.DeleteByName(scenery.getSname());
+        CommonResp< List<Scenery> > commonResp = new CommonResp();
         if(flag > 0) {
             commonResp.setContent(null);
             commonResp.setSuccess(true);

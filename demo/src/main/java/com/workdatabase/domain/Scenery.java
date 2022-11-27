@@ -6,13 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Scenery {
-    @TableId("")
-    private String Sname;
-    private String Sloc;
+    @TableId("sname")
+    private String sname;
+
+    private String sloc;
+
     private String introduction;
+
     private String picture;
 
 }
