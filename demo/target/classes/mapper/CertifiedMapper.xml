@@ -283,4 +283,14 @@
   </delete>
   <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
 
+  <!--  ************************   "捐款" 区域 *************************************************************-->
+  <select id="SelectById_Money" resultType="int">
+    select money from certified where openid = #{openid};
+  </select>
+  <update id="Update_Money" >
+    update certified set money = #{money} where openid = #{openid};
+  </update>
+  <!--  ************************   "捐款" 区域 *************************************************************-->
+
+
 </mapper>

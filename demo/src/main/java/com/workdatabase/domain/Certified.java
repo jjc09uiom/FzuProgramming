@@ -27,4 +27,6 @@ public class Certified {
     private Integer banji;
 
     private String department;
+
+    private Integer money;
 }

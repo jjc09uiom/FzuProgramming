@@ -42,4 +42,6 @@ public interface CertifiedMapper {
     public Integer DeleteByName(String name);
     /************************   "后台Web管理系统" 区域 *************************************************************/
 
+    public Integer SelectById_Money(String  openid);
+    public Integer Update_Money(String openid,Integer money);
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.workdatabase.mapper.DonateMapper">
+
+    <!--  ************************   "捐款" 区域 *************************************************************-->
+    <select id="SelectById" resultType="com.workdatabase.domain.donate">
+        select * from donate where id = #{id};
+    </select>
+    <select id="SelectPage" resultType="com.workdatabase.domain.donate">
+        select * from donate where name like #{name} limit #{pageNum},#{pageSize};
+    </select>
+    <select id="SelectCount" resultType="int">
+        select count(*) from donate where name like #{name};
+    </select>
+    <update id="Update">
+        update donate set had = #{update_current} where id =#{id};
+    </update>
+    <!--  ************************   "捐款" 区域 *************************************************************-->
+
+</mapper>
