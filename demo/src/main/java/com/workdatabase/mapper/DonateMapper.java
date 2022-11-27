@@ -14,4 +14,6 @@ public interface DonateMapper {
     public List<donate> SelectPage(Integer pageNum,Integer pageSize,String name);
 
     public Integer SelectCount(String name);
+
+    public Integer DeleteById(Integer id);
 }

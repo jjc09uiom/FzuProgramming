@@ -1,18 +1,19 @@
 package com.workdatabase.Controller;
 
 
+import com.workdatabase.domain.Voice;
 import com.workdatabase.domain.donate;
 import com.workdatabase.mapper.CertifiedMapper;
 import com.workdatabase.mapper.DonateMapper;
 import com.workdatabase.mapper.UserMapper;
 import com.workdatabase.resp.CommonResp;
+import com.workdatabase.server.web.DonateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/donation")
@@ -23,6 +24,8 @@ public class DonateController {
     @Autowired
     private CertifiedMapper certifiedMapper;
 
+    @Autowired
+    private DonateService donateService;
     @GetMapping("/donate")       //捐款操作
     public CommonResp donation(@RequestParam String openid, @RequestParam Integer push_Money, @RequestParam Integer id){
         CommonResp<String> commonResp = new CommonResp();
@@ -76,6 +79,62 @@ public class DonateController {
         commonResp.setMessage("请求数据成功");
         return commonResp;
     }
+
+    /*************************************   "后台Web管理系统"区域  ************************************************************************/
+    //1.用分页的方式，返回当前捐款对象信息
+    @GetMapping("/page")
+    public CommonResp page(@RequestParam Integer pageNum,
+                           @RequestParam Integer pageSize,
+                           @RequestParam String  name){
+        pageNum=(pageNum-1)*pageSize;
+        name = "%"+name+"%";
+        Map<String,Object> res = new HashMap<>();
+        List<donate> data = donateMapper.SelectPage(pageNum,pageSize,name);
+        Integer total = donateMapper.SelectCount(name);
+        res.put("data" , data);
+        res.put("total" , total);
+        CommonResp< Map<String,Object> > commonResp = new CommonResp();
+        commonResp.setContent(res);
+        commonResp.setSuccess(true);
+        commonResp.setMessage("查找成功。");
+        return commonResp;
+    }
+    //2.新增或者修改
+    @PostMapping("/save")
+    public CommonResp save(@RequestBody donate donate){
+        boolean flag = donateService.saveOrUpdate(donate);
+        CommonResp< List<Voice> > commonResp = new CommonResp();
+        if(flag){
+            commonResp.setContent(null);
+            commonResp.setSuccess(true);
+            commonResp.setMessage("新增或者修改成功。");
+        }
+        else {
+            commonResp.setContent(null);
+            commonResp.setSuccess(false);
+            commonResp.setMessage("新增或者修改失败。");
+        }
+        return commonResp;
+    }
+    //3.删除
+    @PostMapping("/delete")
+    public CommonResp delete(@RequestBody donate donate){
+        Integer flag = donateMapper.DeleteById(donate.getId());
+        CommonResp< List<donate> > commonResp = new CommonResp();
+        if(flag > 0) {
+            commonResp.setContent(null);
+            commonResp.setSuccess(true);
+            commonResp.setMessage("删除成功。");
+        }
+        else {
+            commonResp.setContent(null);
+            commonResp.setSuccess(false);
+            commonResp.setMessage("删除失败。");
+        }
+        return commonResp;
+    }
+
+/*************************************   "后台Web管理系统" 区域 ************************************************************************/
 
 
 }
