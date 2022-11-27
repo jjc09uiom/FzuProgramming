@@ -39,7 +39,7 @@ public interface CertifiedMapper {
                                       String major,String banji,String department);
     public Integer SelectCount(String  name,String roommateName,String phonenumber,String graduationTime,
                                String major,String banji,String department);
-    public Integer DeleteById(String openId);
+    public Integer DeleteByName(String name);
     /************************   "后台Web管理系统" 区域 *************************************************************/
 
 }

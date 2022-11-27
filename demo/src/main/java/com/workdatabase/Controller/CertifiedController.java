@@ -74,7 +74,7 @@ public class CertifiedController {
     //3.删除
     @PostMapping("/delete")
     public CommonResp delete(@RequestBody Certified certified){
-        Integer flag = certifiedMapper.DeleteById(certified.getOpenid());
+        Integer flag = certifiedMapper.DeleteByName(certified.getName());
         CommonResp< List<Certified> > commonResp = new CommonResp();
         if(flag > 0) {
             commonResp.setContent(null);

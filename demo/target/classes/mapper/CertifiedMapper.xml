@@ -278,8 +278,8 @@
       banji like #{banji} and
       department like #{department}
   </select>
-  <delete id="DeleteById" parameterType="String">
-    delete from certified where openId = #{openId};
+  <delete id="DeleteByName" parameterType="String">
+    delete from certified where name = #{name};
   </delete>
   <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
 
