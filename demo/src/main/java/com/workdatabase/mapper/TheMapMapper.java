@@ -2,13 +2,10 @@ package com.workdatabase.mapper;
 
 import com.workdatabase.domain.TheMap;
 import com.workdatabase.domain.TheMapExample;
-import com.workdatabase.domain.Voice;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
 public interface TheMapMapper {
     long countByExample(TheMapExample example);
 
@@ -33,11 +30,4 @@ public interface TheMapMapper {
     int updateByPrimaryKey(TheMap record);
 
     List<TheMap> list();
-
-    /************************   "后台Web管理系统" 区域 *************************************************************/
-    public List<TheMap> SelectPage(Integer pageNum, Integer pageSize, String fName);
-    public Integer SelectCount(String fName);
-    public Integer DeleteById(String fileId);
-
-    /************************   "后台Web管理系统" 区域 *************************************************************/
 }

@@ -1,40 +1,13 @@
-POST http://localhost:80/WeixinUser/Login
+POST http://localhost:80/Weixin/dmentReunion
 Content-Type: application/x-www-form-urlencoded
 
-code=073QwwGa1io7iE024JGa1ESZ2z2QwwGA
-
+openid=3
 
 ###
 
-POST http://localhost:80/WeixinUser/identify
+POST http://localhost:80/Weixin/Reunion
 Content-Type: application/x-www-form-urlencoded
 
-openId=ol_Y65RUa066RPCw58RX6F8xUMUI&name=古巨基&roommatename=爱妃&phonenumber=33333&graduationtime=2002-01-02&major=化学学院&banji=2&department=计算机部
-
-###
-
-GET http://localhost:80/Weixin/GetMap
-Accept: application/json
-
-###
-
-GET http://localhost:80/Weixin/greeting
-Accept: application/json
-
-###
-POST http://localhost:80/Weixin/getMessage
-Content-Type: application/x-www-form-urlencoded
-
-id=6
-
-###
-POST http://localhost:8040/Weixin/Reunion
-Content-Type: application/x-www-form-urlencoded
-
-openid=4
-
-###
-GET http://localhost:8040/donation/fresh?pageNum=1&pageSize=5
-Accept: application/json
+openid=10
 
 ###

@@ -2,12 +2,10 @@ package com.workdatabase.mapper;
 
 import com.workdatabase.domain.Voice;
 import com.workdatabase.domain.VoiceExample;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
 public interface VoiceMapper {
     long countByExample(VoiceExample example);
 
@@ -32,10 +30,4 @@ public interface VoiceMapper {
     int updateByPrimaryKey(Voice record);
 
     List<Voice> list();
-    /************************   "后台Web管理系统" 区域 *************************************************************/
-    public List<Voice> SelectPage(Integer pageNum,Integer pageSize,String greeting);
-    public Integer SelectCount(String greeting);
-    public Integer DeleteById(Integer keyId);
-
-    /************************   "后台Web管理系统" 区域 *************************************************************/
 }

@@ -197,17 +197,4 @@
       latitude = #{latitude,jdbcType=VARCHAR}
     where fileId = #{fileid,jdbcType=VARCHAR}
   </update>
-
-  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
-  <select id="SelectPage" resultType="com.workdatabase.domain.TheMap">
-    select * from The_Map where fName like #{fName} limit #{pageNum},#{pageSize};
-  </select>
-  <delete id="DeleteById" parameterType="String">
-    delete from The_Map where fileId = #{fileId};
-  </delete>
-  <select id="SelectCount"  resultType="int">
-    select count(*) from The_Map where fName like #{fName};
-  </select>
-  <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
-
 </mapper>
