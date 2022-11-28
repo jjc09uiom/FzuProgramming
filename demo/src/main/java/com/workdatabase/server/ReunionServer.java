@@ -4,8 +4,6 @@ package com.workdatabase.server;
 import com.workdatabase.domain.Certified;
 import com.workdatabase.domain.CertifiedExample;
 import com.workdatabase.mapper.CertifiedMapper;
-import com.workdatabase.req.CertifiedReq;
-import com.workdatabase.util.CopyUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -39,10 +37,10 @@ public class ReunionServer {
         }
     }
 
-    public List<Certified> selectByBanjiAndGraduation(int banji,String time){
+    public List<Certified> selectByBanjiAndGraduation(int banji,String time,String openid){
         CertifiedExample certifiedExample=new CertifiedExample();
         CertifiedExample.Criteria criteria=certifiedExample.createCriteria();
-        criteria.andBanjiEqualTo(banji).andGraduationtimeEqualTo(time);
+        criteria.andBanjiEqualTo(banji).andGraduationtimeEqualTo(time).andOpenidNotEqualTo(openid);
         List<Certified> list=certifiedMapper.selectByExample(certifiedExample);
         if(ObjectUtils.isEmpty(list)){
             return null;
@@ -52,15 +50,31 @@ public class ReunionServer {
         }
     }
 
+    private List<Certified> selectByDepartmentAndGraduation(String dment,String time,String openid){
+        CertifiedExample certifiedExample=new CertifiedExample();
+        CertifiedExample.Criteria criteria=certifiedExample.createCriteria();
+        criteria.andDepartmentEqualTo(dment).andGraduationtimeEqualTo(time).andOpenidNotEqualTo(openid);
+        List<Certified> list=certifiedMapper.selectByExample(certifiedExample);
+        if(ObjectUtils.isEmpty(list)){
+            return null;
+        }else {
+            return list;
+        }
+    }
 
 
-    public List<CertifiedReq> getReunion(String openid){
+
+    public List<Certified> getReunion(String openid){
 
         Certified certified=selectByPrimaryKeyLoginName(openid);
-      List<Certified> DB=selectByBanjiAndGraduation(certified.getBanji(),certified.getGraduationtime());
+      List<Certified> DB=selectByBanjiAndGraduation(certified.getBanji(),certified.getGraduationtime(),openid);
 
 
-      List<CertifiedReq> list= CopyUtil.copyList(DB,CertifiedReq.class);
-       return list;
+       return DB;
+    }
+    public List<Certified> dmentReunion(String openid){
+        Certified certified=selectByPrimaryKeyLoginName(openid);
+        List<Certified> DB=selectByDepartmentAndGraduation(certified.getDepartment(),certified.getGraduationtime(),openid);
+        return DB;
     }
 }
