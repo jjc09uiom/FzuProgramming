@@ -4,8 +4,6 @@ package com.workdatabase.server;
 import com.workdatabase.domain.Certified;
 import com.workdatabase.domain.CertifiedExample;
 import com.workdatabase.mapper.CertifiedMapper;
-import com.workdatabase.req.CertifiedReq;
-import com.workdatabase.util.CopyUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -69,10 +67,10 @@ public class ReunionServer {
     public List<Certified> getReunion(String openid){
 
         Certified certified=selectByPrimaryKeyLoginName(openid);
-        List<Certified> DB=selectByBanjiAndGraduation(certified.getBanji(),certified.getGraduationtime(),openid);
+      List<Certified> DB=selectByBanjiAndGraduation(certified.getBanji(),certified.getGraduationtime(),openid);
 
 
-        return DB;
+       return DB;
     }
     public List<Certified> dmentReunion(String openid){
         Certified certified=selectByPrimaryKeyLoginName(openid);

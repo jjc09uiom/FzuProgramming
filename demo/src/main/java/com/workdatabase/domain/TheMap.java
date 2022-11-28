@@ -1,9 +1,23 @@
 package com.workdatabase.domain;
 
-public class TheMap {
-    private String fileid;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    private String fname;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+@TableName("The_Map")
+public class TheMap {
+    @TableId("fileId")
+    private String fileId;
+
+    @TableField("fName")
+    private String fName;
 
     private String longitude;
 
@@ -11,54 +25,5 @@ public class TheMap {
 
     private Integer id;
 
-    public String getFileid() {
-        return fileid;
-    }
-
-    public void setFileid(String fileid) {
-        this.fileid = fileid;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "TheMap{" +
-                "fileid='" + fileid + '\'' +
-                ", fname='" + fname + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", id=" + id +
-                '}';
-    }
+    private String message;
 }

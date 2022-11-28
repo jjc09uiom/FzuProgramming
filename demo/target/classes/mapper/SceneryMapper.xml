@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.workdatabase.mapper.SceneryMapper">
+
+    <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+    <select id="SelectPage" resultType="com.workdatabase.domain.Scenery">
+        select * from scenery where sname like #{sname} limit #{pageNum},#{pageSize};
+    </select>
+    <delete id="DeleteByName" parameterType="String">
+        delete from scenery where sname = #{sname};
+    </delete>
+    <select id="SelectCount" resultType="int">
+        select count(*) from scenery where sname like #{sname};
+    </select>
+    <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+</mapper>

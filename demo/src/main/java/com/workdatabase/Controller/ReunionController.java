@@ -1,7 +1,6 @@
 package com.workdatabase.Controller;
 
 import com.workdatabase.domain.Certified;
-import com.workdatabase.req.CertifiedReq;
 import com.workdatabase.resp.CommonResp;
 import com.workdatabase.server.ReunionServer;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,6 @@ public class ReunionController {
 
     @Resource
     private ReunionServer reunionServer;
-
 
 
     @PostMapping("/Weixin/Reunion")
