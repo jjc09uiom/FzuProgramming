@@ -3,11 +3,14 @@ package com.workdatabase.Controller;
 
 import com.workdatabase.domain.Voice;
 import com.workdatabase.domain.donate;
+import com.workdatabase.domain.donate_user;
 import com.workdatabase.mapper.CertifiedMapper;
 import com.workdatabase.mapper.DonateMapper;
+import com.workdatabase.mapper.Donate_userMapper;
 import com.workdatabase.mapper.UserMapper;
 import com.workdatabase.resp.CommonResp;
 import com.workdatabase.server.web.DonateService;
+import com.workdatabase.server.web.Donate_userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,13 +29,27 @@ public class DonateController {
 
     @Autowired
     private DonateService donateService;
+
+    @Autowired
+    private Donate_userMapper donate_userMapper;
+
+    @Autowired
+    private Donate_userService donate_userService;
+
+    @GetMapping("/test")
+    public donate_user  test(@RequestParam Integer donate_id,@RequestParam String openid,@RequestParam Integer push){
+        return donate_userMapper.Select(donate_id,openid);
+    }
+
+
     @GetMapping("/donate")       //捐款操作
     public CommonResp donation(@RequestParam String openid, @RequestParam Integer push_Money, @RequestParam Integer id){
+
         CommonResp<String> commonResp = new CommonResp();
         String user_id = openid;
         if(push_Money > 0){
             Integer current_Money = certifiedMapper.SelectById_Money(user_id);
-            if(push_Money<=current_Money){
+            if(push_Money<=current_Money){              //可以成功捐款，需要改变数据库数据
                 current_Money -= push_Money;
                 donate m =  donateMapper.SelectById(id);
                 Integer update_current = m.getHad();        //1.获取当前进度
@@ -44,6 +61,7 @@ public class DonateController {
                     commonResp.setContent("");
                     commonResp.setSuccess(true);
                     commonResp.setMessage("捐款成功");
+                    donate_userService.Update(id,openid,push_Money);
                 }
                 else {
                     update_current += need_Money;
@@ -53,6 +71,7 @@ public class DonateController {
                     commonResp.setContent("");
                     commonResp.setSuccess(true);
                     commonResp.setMessage("捐款成功,超额返回您：" + (push_Money - need_Money) + "元");
+                    donate_userService.Update(id,openid,need_Money);
                 }
             }
             else {
@@ -74,6 +93,27 @@ public class DonateController {
         return page(pageNum,pageSize,name);
     }
 
+    @GetMapping("/object")
+    public CommonResp object(@RequestParam Integer donate_id,@RequestParam String openid){
+        donate data = donateService.getById(donate_id);      //展示项目具体信息
+        Integer flag = donate_userMapper.Select_Exit(donate_id,openid);
+        Integer ever_push = 0;
+        if(flag == 0 ){     //没对此项目捐过款
+            ever_push = 0;
+        }
+        else {              //曾经捐款
+            ever_push = donate_userMapper.Select_Push(donate_id,openid);
+        }
+
+        Map<String,Object> res = new HashMap<>();
+        res.put("data",data);
+        res.put("ever_push",ever_push);
+        CommonResp< Map<String,Object> > commonResp = new CommonResp();
+        commonResp.setContent(res);
+        commonResp.setSuccess(true);
+        commonResp.setMessage("当前项目数据如下。");
+        return commonResp;
+    }
     /*************************************   "后台Web管理系统"区域  ************************************************************************/
     //1.用分页的方式，返回当前捐款对象信息
     @GetMapping("/page")

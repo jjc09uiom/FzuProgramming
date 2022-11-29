@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.workdatabase.mapper.Donate_userMapper">
+
+    <!--  ************************   "捐款" 区域 *************************************************************-->
+    <select id="Select_Exit" resultType="int">
+        select count(*) from donate_user where donate_id = #{donate_id} and openid = #{openid};
+    </select>
+    <select id="Select_Push" resultType="int">
+        select ever_push from donate_user where donate_id = #{donate_id} and openid = #{openid};
+    </select>
+    <select id="Select" resultType="com.workdatabase.domain.donate_user">
+        select donate_id,openid,ever_push from donate_user where donate_id = #{donate_id} and openid = #{openid};
+    </select>
+    <update id="Update">
+        update donate_user set ever_push = #{push} where donate_id =#{donate_id} and openid = #{openid};
+    </update>
+    <insert id="Insert" >
+        insert into donate_user values (#{donate_id},#{openid},#{push});
+    </insert>
+
+    <!--  ************************   "捐款" 区域 *************************************************************-->
+
+
+</mapper>
