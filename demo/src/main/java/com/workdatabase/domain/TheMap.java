@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @TableName("The_Map")
 public class TheMap {
     @TableId("fileId")
-    private String fileId;
+    private String fileid;
 
     @TableField("fName")
     private String fName;
