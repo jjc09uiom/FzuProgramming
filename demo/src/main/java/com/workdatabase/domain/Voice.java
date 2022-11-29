@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Voice {
     @TableId("keyId")
-    private Integer keyId;
+    private Integer keyid;
 
     private String greeting;
 }

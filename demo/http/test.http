@@ -25,7 +25,7 @@ Accept: application/json
 POST http://localhost:8040/Weixin/getMessage
 Content-Type: application/x-www-form-urlencoded
 
-id=6
+id=8
 
 ###
 POST http://localhost:8040/Weixin/Reunion

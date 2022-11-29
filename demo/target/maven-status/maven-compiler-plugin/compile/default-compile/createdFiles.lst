@@ -15,6 +15,7 @@ com\workdatabase\req\CertifiedReq.class
 com\workdatabase\server\QuestionService$inter_Record.class
 com\workdatabase\Controller\questionController.class
 com\workdatabase\mapper\IdentifyMapper.class
+com\workdatabase\websocket\WebSocketServer.class
 com\workdatabase\config\HttpClientUtils.class
 com\workdatabase\Controller\CertifiedController.class
 com\workdatabase\domain\HashPointExample.class
@@ -31,6 +32,7 @@ com\workdatabase\domain\VoiceExample$Criteria.class
 com\workdatabase\domain\VoiceExample$GeneratedCriteria.class
 com\workdatabase\domain\HashPointExample$Criteria.class
 com\workdatabase\domain\TheMapExample$Criterion.class
+com\workdatabase\domain\User.class
 com\workdatabase\req\IdentifySaveReq.class
 com\workdatabase\domain\IdentifyExample$GeneratedCriteria.class
 com\workdatabase\domain\TheMapExample$Criteria.class
@@ -70,6 +72,7 @@ com\workdatabase\domain\CertifiedExample$Criteria.class
 com\workdatabase\domain\Voice.class
 com\workdatabase\domain\IdentifyExample$Criterion.class
 com\workdatabase\domain\IdentifyExample.class
+com\workdatabase\config\WebSocketConfig.class
 com\workdatabase\mapper\MybatisPlus\TheMapMapperPlus.class
 com\workdatabase\domain\CertifiedExample.class
 com\workdatabase\domain\IdentifyExample$Criteria.class

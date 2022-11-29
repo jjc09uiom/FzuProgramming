@@ -61,7 +61,7 @@ public class VoiceController {
     //3.删除
     @PostMapping("/delete")
     public CommonResp delete(@RequestBody Voice voice){
-        Integer flag = voiceMapper.DeleteById(voice.getKeyId());
+        Integer flag = voiceMapper.DeleteById(voice.getKeyid());
         CommonResp< List<Voice> > commonResp = new CommonResp();
         if(flag > 0) {
             commonResp.setContent(null);
