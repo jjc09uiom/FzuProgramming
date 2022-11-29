@@ -71,13 +71,7 @@ public class DonateController {
 
     @GetMapping("/fresh")                   //2.用分页的方式，返回当前捐款信息
     public CommonResp fresh(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String name){
-        CommonResp< List<donate> > commonResp = new CommonResp();
-        pageNum = (pageNum - 1)* pageSize;
-        name = "%" + name + "%";
-        commonResp.setContent(donateMapper.SelectPage(pageNum,pageSize,name));
-        commonResp.setSuccess(true);
-        commonResp.setMessage("请求数据成功");
-        return commonResp;
+        return page(pageNum,pageSize,name);
     }
 
     /*************************************   "后台Web管理系统"区域  ************************************************************************/
