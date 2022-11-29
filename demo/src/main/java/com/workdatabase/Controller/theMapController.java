@@ -73,7 +73,7 @@ public class theMapController {
     //3.删除
     @PostMapping("/theMap/delete")
     public CommonResp delete(@RequestBody TheMap theMap){
-        Integer flag = theMapMapper.DeleteById(theMap.getFileId());
+        Integer flag = theMapMapper.DeleteById(theMap.getFileid());
         CommonResp< List<TheMap> > commonResp = new CommonResp();
         if(flag > 0) {
             commonResp.setContent(null);
