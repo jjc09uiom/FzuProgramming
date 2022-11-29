@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.workdatabase.mapper.QuestionMapper">
+
+    <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+    <select id="SelectPage" resultType="com.workdatabase.domain.question">
+        select * from question where question like #{question} limit #{pageNum},#{pageSize};
+    </select>
+    <delete id="DeleteById" parameterType="int">
+        delete from question where keyId = #{keyId};
+    </delete>
+    <select id="SelectCount" parameterType="String" resultType="int">
+        select count(*) from question where question like #{question};
+    </select>
+    <!--  ************************   "后台Web管理系统" 区域 *************************************************************-->
+
+</mapper>
