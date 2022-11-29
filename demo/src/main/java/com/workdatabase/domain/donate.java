@@ -16,4 +16,5 @@ public class donate {
     private Integer need;
     private Integer had;
     private Float prog;
+    private String picture;
 }
