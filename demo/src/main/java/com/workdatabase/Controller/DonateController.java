@@ -14,6 +14,7 @@ import com.workdatabase.server.web.Donate_userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +97,12 @@ public class DonateController {
     @GetMapping("/object")
     public CommonResp object(@RequestParam Integer donate_id,@RequestParam String openid){
         donate data = donateService.getById(donate_id);      //展示项目具体信息
+
+        List<donate> data_to_change = new ArrayList<donate>();
+        data_to_change.add(data);
+        List<Double> prog = donateService.change(data_to_change);         //计算项目当前进度
+//        System.out.println(prog);
+
         Integer flag = donate_userMapper.Select_Exit(donate_id,openid);
         Integer ever_push = 0;
         if(flag == 0 ){     //没对此项目捐过款
@@ -107,6 +114,7 @@ public class DonateController {
 
         Map<String,Object> res = new HashMap<>();
         res.put("data",data);
+        res.put("prog",prog);
         res.put("ever_push",ever_push);
         CommonResp< Map<String,Object> > commonResp = new CommonResp();
         commonResp.setContent(res);
@@ -124,8 +132,13 @@ public class DonateController {
         name = "%"+name+"%";
         Map<String,Object> res = new HashMap<>();
         List<donate> data = donateMapper.SelectPage(pageNum,pageSize,name);
+
+        List<Double> prog = donateService.change(data);         //计算项目当前进度
+//        System.out.println(prog);
+
         Integer total = donateMapper.SelectCount(name);
         res.put("data" , data);
+        res.put("prog",prog);
         res.put("total" , total);
         CommonResp< Map<String,Object> > commonResp = new CommonResp();
         commonResp.setContent(res);
