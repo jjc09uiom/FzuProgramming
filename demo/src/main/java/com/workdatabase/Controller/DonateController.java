@@ -101,7 +101,7 @@ public class DonateController {
         List<donate> data_to_change = new ArrayList<donate>();
         data_to_change.add(data);
         List<Double> prog = donateService.change(data_to_change);         //计算项目当前进度
-//        System.out.println(prog);
+        System.out.println(prog);
 
         Integer flag = donate_userMapper.Select_Exit(donate_id,openid);
         Integer ever_push = 0;
