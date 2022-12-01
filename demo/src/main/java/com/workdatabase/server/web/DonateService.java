@@ -16,8 +16,8 @@ public class DonateService extends ServiceImpl<DonateMapperPlus, donate> {
 
         for(donate t:data){
             Double d = t.getHad()*1.0/t.getNeed();
-            int c =(int) (d * 10);
-            d = (double) c / 10;
+            int c =(int) (d * 100);
+            d = (double) c / 100;
             ans.add(d);
         }
         return ans;

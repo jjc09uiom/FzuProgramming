@@ -1,9 +1,11 @@
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\Voice.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\resp\AdmintorLoginResp.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\interceptor\LogInterceptor.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\resp\HashPointResp.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\HashPointMapper.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\websocket\WebSocketServer.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\filter\LogFilter.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\AdmintorExample.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\resp\CommonResp.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\exception\BusinessExceptionCode.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\IdenController.java
@@ -12,10 +14,12 @@ F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\dom
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\IdentifyMapper.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\server\web\VoiceService.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\Donate_userMapper.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\server\web\AdmintorService.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\UserMapper.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\IdentifyExample.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\MybatisPlus\CertifiedMapperPlus.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\MybatisPlus\Donate_userMapperPlus.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\req\AdmintorLoginReq.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\Identify.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\VoiceExample.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\SceneryMapper.java
@@ -33,11 +37,13 @@ F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\dom
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\SceneryController.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\resp\IdentifyResp.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\resp\CertifiedResp.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\AdmintorMapper.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\MybatisPlus\DonateMapperPlus.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\server\IdenServer.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\CertifiedController.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\questionController.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\ReunionController.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\AdmintorController.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\mapper\MybatisPlus\TheMapMapperPlus.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\CertifiedExample.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\TheMapExample.java
@@ -53,6 +59,7 @@ F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\con
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\server\web\CertifiedService.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\donate_user.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\server\QuestionService.java
+F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\domain\Admintor.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\interceptor\LoginInterceptor.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\config\SpringMvcConfig.java
 F:\Code_Storage\Java_code\FzuProgramming\demo\src\main\java\com\workdatabase\Controller\VoiceController.java

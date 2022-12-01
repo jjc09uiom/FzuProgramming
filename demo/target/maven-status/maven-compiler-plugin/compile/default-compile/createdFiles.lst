@@ -1,4 +1,5 @@
 com\workdatabase\domain\Inter_Static.class
+com\workdatabase\domain\AdmintorExample$Criteria.class
 com\workdatabase\exception\BusinessException.class
 com\workdatabase\DemoApplication.class
 com\workdatabase\req\IdentifyQueryReq.class
@@ -15,6 +16,7 @@ com\workdatabase\domain\TheMap.class
 com\workdatabase\domain\TheMapExample$GeneratedCriteria.class
 com\workdatabase\domain\VoiceExample$Criteria.class
 com\workdatabase\domain\TheMapExample$Criterion.class
+com\workdatabase\domain\AdmintorExample$GeneratedCriteria.class
 com\workdatabase\domain\User.class
 com\workdatabase\domain\IdentifyExample$GeneratedCriteria.class
 com\workdatabase\domain\TheMapExample$Criteria.class
@@ -24,7 +26,9 @@ com\workdatabase\domain\TheMapExample.class
 com\workdatabase\domain\question.class
 com\workdatabase\WeiXin\WeixinConstants.class
 com\workdatabase\mapper\CertifiedMapper.class
+com\workdatabase\resp\AdmintorLoginResp.class
 com\workdatabase\resp\CertifiedResp.class
+com\workdatabase\req\AdmintorLoginReq.class
 com\workdatabase\server\web\Donate_userService.class
 com\workdatabase\domain\HashPointExample$GeneratedCriteria.class
 com\workdatabase\domain\CertifiedExample$Criterion.class
@@ -33,6 +37,7 @@ com\workdatabase\server\QuestionService$inter_Static.class
 com\workdatabase\resp\IdentifyResp.class
 com\workdatabase\mapper\SceneryMapper.class
 com\workdatabase\mapper\QuestionMapper.class
+com\workdatabase\Controller\AdmintorController.class
 com\workdatabase\domain\Certified.class
 com\workdatabase\mapper\MybatisPlus\CertifiedMapperPlus.class
 com\workdatabase\mapper\VoiceMapper.class
@@ -40,11 +45,14 @@ com\workdatabase\domain\IdentifyExample$Criterion.class
 com\workdatabase\mapper\MybatisPlus\TheMapMapperPlus.class
 com\workdatabase\domain\CertifiedExample.class
 com\workdatabase\domain\IdentifyExample$Criteria.class
+com\workdatabase\domain\AdmintorExample.class
 com\workdatabase\server\ReunionServer.class
+com\workdatabase\domain\Admintor.class
 com\workdatabase\mapper\UserMapper.class
 com\workdatabase\resp\HashPointResp.class
 com\workdatabase\Controller\VoiceController.class
 com\workdatabase\domain\CertifiedExample$GeneratedCriteria.class
+com\workdatabase\domain\AdmintorExample$Criterion.class
 com\workdatabase\domain\donate_user.class
 com\workdatabase\server\IdenServer.class
 com\workdatabase\domain\HashPointExample$Criterion.class
@@ -64,11 +72,13 @@ com\workdatabase\domain\HashPointExample$Criteria.class
 com\workdatabase\mapper\MybatisPlus\QuestionMapperPlus.class
 com\workdatabase\req\IdentifySaveReq.class
 com\workdatabase\server\QuestionService.class
+com\workdatabase\server\web\AdmintorService.class
 com\workdatabase\domain\VoiceExample$Criterion.class
 com\workdatabase\filter\LogFilter.class
 com\workdatabase\Controller\ControllerExceptionHandler.class
 com\workdatabase\domain\VoiceExample.class
 com\workdatabase\server\web\SceneryService.class
+com\workdatabase\mapper\AdmintorMapper.class
 com\workdatabase\Controller\ReunionController.class
 com\workdatabase\mapper\HashPointMapper.class
 com\workdatabase\server\UserloginServer.class
