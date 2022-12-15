@@ -2,6 +2,7 @@ package com.workdatabase.server;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,17 +22,23 @@ public class QuestionService {
     }
     //答题记录存储器
     public static class inter_Record {
-       public String time;//答题时间
+        public String time;//答题时间
         public int gain;//获得分数
     }
     //题目存储器
     public static class q_Saver {
-         public String title;
+        public String title;
         public String A;
         public String B;
         public String C;
         public String D;
         public String correct;
+    }
+    //把云部署时间更改为本地时间
+    public Date dayAddAndSub(int currentDay,int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(currentDay, day);
+        return calendar.getTime();
     }
     //随机数生成
     public int[] rand(int num){
@@ -42,7 +49,7 @@ public class QuestionService {
         int randInt;
         for (int i=0;i<num;i++){
             do {
-                randInt = rand.nextInt(n);
+                randInt = rand.nextInt(n)+1;
             }while (bool[randInt]);
             bool[randInt] = true;
             getInt[i]=randInt;
@@ -84,8 +91,9 @@ public class QuestionService {
         3.同步更新总积分
          */
         Date date = new Date();//获取当前的日期
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        String time = df.format(date);//获取String类型的时间
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH+8:mm:ss");//设置日期格式
+        Date dateResult = this.dayAddAndSub(Calendar.HOUR,+8);
+        String time = df.format(dateResult);//获取String类型的时间
         Connection con;
         String driver="com.mysql.cj.jdbc.Driver";
         String url="jdbc:mysql://sh-cynosdbmysql-grp-dahz4tww.sql.tencentcdb.com:28835/test";
@@ -98,9 +106,11 @@ public class QuestionService {
                 System.out.println("成功连接数据库");
             String sql1 = String.format("insert into inter_record value ('%s','%s','%d');",id,time,score);
             String sql2 = String.format("update inter_static set total_inter=total_inter+'%d' where openId='%s'",score,id);
+            String sql3 = String.format("update certified set money=money+'%d' where openId='%s'",score,id);
             Statement state = con.createStatement();
             state.execute(sql1);
             state.execute(sql2);
+            state.execute(sql3);
             state.close();
             con.close();
         }catch (ClassNotFoundException e){
@@ -129,6 +139,7 @@ public class QuestionService {
             String sql = "select name,graduationTime,major,total_inter " +
                     "from certified,inter_static where " +
                     "certified.openId=inter_static.openId order by total_inter desc limit 5";
+//            String sql = "select name,graduationTime,major,money from certified order by money desc limit 5";
             ResultSet rs = statement.executeQuery(sql);
             int i =0 ;
             while (rs.next())
@@ -235,5 +246,32 @@ public class QuestionService {
         List<q_Saver> list = new ArrayList<>();
         Collections.addAll(list, que);
         return list;
+    }
+    //获取当前积分
+    public int get_Money(String id){
+        Connection con;
+        String driver="com.mysql.cj.jdbc.Driver";
+        String url="jdbc:mysql://sh-cynosdbmysql-grp-dahz4tww.sql.tencentcdb.com:28835/test";
+        String username="zwj";
+        String password="Www7k7kcom";
+        int money = 0;
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,username,password);
+            Statement statement = con.createStatement();
+            String sql1 = String.format("select money from certified where openId='%s'",id);
+            ResultSet rs = statement.executeQuery(sql1);
+            if (rs.next())
+                money = rs.getInt("money");
+            rs.close();
+            statement.close();
+            con.close();
+        }catch (ClassNotFoundException e){
+            System.out.println("Sorry,can't find the Driver!");
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return money;
     }
 }
