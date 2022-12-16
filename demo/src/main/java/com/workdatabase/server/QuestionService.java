@@ -91,7 +91,7 @@ public class QuestionService {
         3.同步更新总积分
          */
         Date date = new Date();//获取当前的日期
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH+8:mm:ss");//设置日期格式
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         Date dateResult = this.dayAddAndSub(Calendar.HOUR,+8);
         String time = df.format(dateResult);//获取String类型的时间
         Connection con;
