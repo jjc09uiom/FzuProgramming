@@ -105,7 +105,8 @@ public class QuestionService {
             if(!con.isClosed())
                 System.out.println("成功连接数据库");
             String sql1 = String.format("insert into inter_record value ('%s','%s','%d');",id,time,score);
-            String sql2 = String.format("update inter_static set total_inter=total_inter+'%d' where openId='%s'",score,id);
+//            String sql2 = String.format("update inter_static set total_inter=total_inter+'%d' where openId='%s'",score,id);
+            String sql2 = String.format("INSERT INTO inter_static(openId, total_inter) VALUE('%s','%d') ON DUPLICATE KEY UPDATE openId= '%s',total_inter=total_inter+%d",id,score,id,score);
             String sql3 = String.format("update certified set money=money+'%d' where openId='%s'",score,id);
             Statement state = con.createStatement();
             state.execute(sql1);
